@@ -26,6 +26,8 @@ defmodule QueroAlugar.Vacation.Place do
     field :slug, :string
     field :wifi, :boolean, default: false
 
+    has_many :bookings, QueroAlugar.Vacations.Booking
+
     timestamps()
   end
 

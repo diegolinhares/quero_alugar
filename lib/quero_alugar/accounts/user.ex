@@ -10,6 +10,8 @@ defmodule QueroAlugar.Accounts.User do
     field :password, :string, virtual: true
     field :username, :string
 
+    has_many :bookings, QueroAlugar.Vacations.Booking
+
     timestamps()
   end
 
