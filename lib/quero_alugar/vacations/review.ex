@@ -7,7 +7,7 @@ defmodule QueroAlugar.Vacations.Review do
   schema "review" do
     field :comment, :string
     field :rating, :integer
-    
+
     belongs_to :place, QueroAlugar.Vacations.Place
     belongs_to :user, QueroAlugar.Accounts.User
 

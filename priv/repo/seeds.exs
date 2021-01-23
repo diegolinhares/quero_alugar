@@ -1,11 +1,15 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     QueroAlugar.Repo.insert!(%QueroAlugar.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+alias QueroAlugar.Repo
+
+alias QueroAlugar.Vacation.{Booking, Place, Review}
+alias QueroAlugar.Accounts.User
+
+# Users
+
+luke =
+  %User{}
+  |> User.changeset(%{
+    username: "luke",
+    email: "luke@skywalker.com",
+    password: "rebel"
+  })
+  |> Repo.insert!()

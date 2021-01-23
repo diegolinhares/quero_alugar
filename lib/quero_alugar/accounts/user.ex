@@ -12,7 +12,7 @@ defmodule QueroAlugar.Accounts.User do
 
     has_many :bookings, QueroAlugar.Vacations.Booking
     has_many :reviews, QueroAlugar.Vacations.Review
-    
+
     timestamps()
   end
 
