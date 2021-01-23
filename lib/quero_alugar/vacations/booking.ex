@@ -69,22 +69,6 @@ defmodule QueroAlugar.Vacations.Booking do
   end
 
   defp dates_available?(start_date, end_date, place_id) do
-    query =
-      from booking in QueroAlugar.Vacations.Booking,
-        where:
-          booking.place_id == ^place_id and
-            fragment(
-              "(?, ?) OVERLAPS (?, ? + INTERVAL '1' DAY)",
-              booking.start_date,
-              booking.end_date,
-              type(^start_date, :date),
-              type(^end_date, :date)
-            )
-
-    case QueroAlugar.Repo.all(query) do
-      [] -> true
-      _ -> false
-    end
   end
 
   defp calculate_total_price(changeset) do

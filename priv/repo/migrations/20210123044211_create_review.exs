@@ -2,7 +2,7 @@ defmodule QueroAlugar.Repo.Migrations.CreateReview do
   use Ecto.Migration
 
   def change do
-    create table(:review) do
+    create table(:reviews) do
       add :rating, :integer, null: false
       add :comment, :string, null: false
       add :place_id, references(:places, on_delete: :nothing)
@@ -11,7 +11,7 @@ defmodule QueroAlugar.Repo.Migrations.CreateReview do
       timestamps()
     end
 
-    create index(:review, [:place_id])
-    create index(:review, [:user_id])
+    create index(:reviews, [:place_id])
+    create index(:reviews, [:user_id])
   end
 end

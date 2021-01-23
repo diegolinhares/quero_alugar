@@ -2,7 +2,7 @@ defmodule QueroAlugar.Repo.Migrations.CreateBooking do
   use Ecto.Migration
 
   def change do
-    create table(:booking) do
+    create table(:bookings) do
       add :start_date, :date, null: false
       add :end_date, :date, null: false
       add :state, :string, null: false
@@ -13,7 +13,7 @@ defmodule QueroAlugar.Repo.Migrations.CreateBooking do
       timestamps()
     end
 
-    create index(:booking, [:place_id])
-    create index(:booking, [:user_id])
+    create index(:bookings, [:place_id])
+    create index(:bookings, [:user_id])
   end
 end
