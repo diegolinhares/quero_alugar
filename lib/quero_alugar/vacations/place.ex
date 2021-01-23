@@ -1,6 +1,8 @@
-defmodule QueroAlugar.Vacation.Place do
+defmodule QueroAlugar.Vacations.Place do
   use Ecto.Schema
   import Ecto.Changeset
+
+  alias QueroAlugar.Vacations.Booking
 
   @required_fields [
     :name,
@@ -26,7 +28,7 @@ defmodule QueroAlugar.Vacation.Place do
     field :slug, :string
     field :wifi, :boolean, default: false
 
-    has_many :bookings, QueroAlugar.Vacations.Booking
+    has_many :bookings, Booking
 
     timestamps()
   end

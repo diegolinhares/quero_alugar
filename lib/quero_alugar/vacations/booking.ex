@@ -1,6 +1,11 @@
 defmodule QueroAlugar.Vacations.Booking do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
+
+  alias QueroAlugar.Repo
+  alias QueroAlugar.Vacations.Place
+  alias QueroAlugar.Accounts.User
 
   @required_fields [:start_date, :end_date, :place_id]
   @optional_fields [:state]
@@ -11,8 +16,8 @@ defmodule QueroAlugar.Vacations.Booking do
     field :state, :string, default: "reserved"
     field :total_price, :decimal
 
-    belongs_to :place, QueroAlugar.Vacations.Place
-    belongs_to :user, QueroAlugar.Accounts.User
+    belongs_to :place, Place
+    belongs_to :user, User
 
     timestamps()
   end
@@ -69,6 +74,23 @@ defmodule QueroAlugar.Vacations.Booking do
   end
 
   defp dates_available?(start_date, end_date, place_id) do
+    query =
+      from(booking in __MODULE__,
+        where:
+          booking.place_id == ^place_id and
+            fragment(
+              "(?, ?) OVERLAPS (?, ? + INTERVAL '1' DAY)",
+              booking.start_date,
+              booking.end_date,
+              type(^start_date, :date),
+              type(^end_date, :date)
+            )
+      )
+
+    case Repo.all(query) do
+      [] -> true
+      _ -> false
+    end
   end
 
   defp calculate_total_price(changeset) do
@@ -78,7 +100,7 @@ defmodule QueroAlugar.Vacations.Booking do
         end_date = get_field(changeset, :end_date)
         place_id = get_field(changeset, :place_id)
 
-        place = QueroAlugar.Repo.get!(QueroAlugar.Vacations.Place, place_id)
+        place = Repo.get!(Place, place_id)
 
         total_nights = Date.diff(end_date, start_date)
         total_price = Decimal.mult(place.price_per_night, total_nights)

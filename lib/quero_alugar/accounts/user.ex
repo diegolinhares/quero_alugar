@@ -2,6 +2,8 @@ defmodule QueroAlugar.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias QueroAlugar.Vacations.{Booking, Review}
+
   @required_fields [:username, :email, :password]
 
   schema "user" do
@@ -10,8 +12,8 @@ defmodule QueroAlugar.Accounts.User do
     field :password, :string, virtual: true
     field :username, :string
 
-    has_many :bookings, QueroAlugar.Vacations.Booking
-    has_many :reviews, QueroAlugar.Vacations.Review
+    has_many :bookings, Booking
+    has_many :reviews, Review
 
     timestamps()
   end

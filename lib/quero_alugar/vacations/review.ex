@@ -2,14 +2,17 @@ defmodule QueroAlugar.Vacations.Review do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias QueroAlugar.Vacations.Place
+  alias QueroAlugar.Accounts.User
+
   @required_fields [:rating, :comment, :place]
 
   schema "review" do
     field :comment, :string
     field :rating, :integer
 
-    belongs_to :place, QueroAlugar.Vacations.Place
-    belongs_to :user, QueroAlugar.Accounts.User
+    belongs_to :place, Place
+    belongs_to :user, User
 
     timestamps(type: :utc_datetime)
   end
