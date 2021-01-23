@@ -5,7 +5,10 @@ defmodule QueroAlugarWeb.Schema.Types do
 
   alias QueroAlugarWeb.Schema.Types
 
+  import_types(Types.User)
   import_types(Types.Place)
+  import_types(Types.Booking)
+  import_types(Types.Review)
 
   enum :sort_order do
     value(:asc)

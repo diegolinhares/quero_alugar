@@ -47,7 +47,8 @@ defmodule QueroAlugar.MixProject do
       {:pbkdf2_elixir, "~> 1.3"},
       {:absinthe, "~> 1.5"},
       {:absinthe_plug, "~> 1.5"},
-      {:absinthe_phoenix, "~> 2.0"}
+      {:absinthe_phoenix, "~> 2.0"},
+      {:dataloader, "~> 1.0"}
     ]
   end
 

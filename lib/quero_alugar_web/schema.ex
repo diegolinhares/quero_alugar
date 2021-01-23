@@ -3,6 +3,7 @@ defmodule QueroAlugarWeb.Schema do
 
   import_types(QueroAlugarWeb.Schema.Types)
 
+  alias QueroAlugar.Repo
   alias QueroAlugarWeb.Resolvers
 
   query do
@@ -21,5 +22,17 @@ defmodule QueroAlugarWeb.Schema do
 
       resolve(&Resolvers.Vacations.list_places/3)
     end
+  end
+
+  def context(ctx) do
+    loader =
+      Dataloader.new()
+      |> Dataloader.add_source(Repo, Dataloader.Ecto.new(Repo))
+
+    Map.put(ctx, :loader, loader)
+  end
+
+  def plugins do
+    [Absinthe.Middleware.Dataloader] ++ Absinthe.Plugin.defaults()
   end
 end

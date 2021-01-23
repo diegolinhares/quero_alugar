@@ -1,6 +1,10 @@
 defmodule QueroAlugarWeb.Schema.Types.Place do
   use Absinthe.Schema.Notation
 
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
+
+  alias QueroAlugar.Repo
+
   object :place do
     field :id, non_null(:id)
     field :name, non_null(:string)
@@ -14,6 +18,8 @@ defmodule QueroAlugarWeb.Schema.Types.Place do
     field :price_per_night, non_null(:decimal)
     field :image, non_null(:string)
     field :image_thumbnail, non_null(:string)
+    field :bookings, list_of(:booking), resolve: dataloader(Repo)
+    field :reviews, list_of(:review), resolve: dataloader(Repo)
   end
 
   input_object :place_filter do
