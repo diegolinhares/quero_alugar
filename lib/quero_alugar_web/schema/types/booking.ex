@@ -3,7 +3,7 @@ defmodule QueroAlugarWeb.Schema.Types.Booking do
 
   import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
-  alias QueroAlugar.Repo
+  alias QueroAlugar.{Accounts, Vacations}
 
   object :booking do
     field :id, non_null(:id)
@@ -11,7 +11,7 @@ defmodule QueroAlugarWeb.Schema.Types.Booking do
     field :end_date, non_null(:date)
     field :state, non_null(:string)
     field :total_price, non_null(:decimal)
-    field :user, non_null(:user), resolve: dataloader(Repo)
-    field :place, non_null(:place), resolve: dataloader(Repo)
+    field :user, non_null(:user), resolve: dataloader(Accounts)
+    field :place, non_null(:place), resolve: dataloader(Vacations)
   end
 end

@@ -3,7 +3,7 @@ defmodule QueroAlugarWeb.Schema do
 
   import_types(QueroAlugarWeb.Schema.Types)
 
-  alias QueroAlugar.Repo
+  alias QueroAlugar.{Accounts, Vacations}
   alias QueroAlugarWeb.Resolvers
 
   query do
@@ -27,7 +27,8 @@ defmodule QueroAlugarWeb.Schema do
   def context(ctx) do
     loader =
       Dataloader.new()
-      |> Dataloader.add_source(Repo, Dataloader.Ecto.new(Repo))
+      |> Dataloader.add_source(Vacations, Vacations.datasource())
+      |> Dataloader.add_source(Accounts, Accounts.datasource())
 
     Map.put(ctx, :loader, loader)
   end
