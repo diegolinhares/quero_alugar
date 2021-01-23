@@ -11,14 +11,14 @@ defmodule QueroAlugar.Vacations.Place do
     :location,
     :price_per_night,
     :image,
-    :image_thumbmail
+    :image_thumbnail
   ]
   @optional_fields [:max_guests, :pet_friendly, :pool, :wifi]
 
   schema "places" do
     field :description, :string
     field :image, :string
-    field :image_thumbmail, :string
+    field :image_thumbnail, :string
     field :location, :string
     field :max_guests, :integer, default: 2
     field :name, :string

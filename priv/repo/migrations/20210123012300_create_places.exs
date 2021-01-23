@@ -9,7 +9,7 @@ defmodule QueroAlugar.Repo.Migrations.CreatePlaces do
       add :location, :string, null: false
       add :price_per_night, :decimal, null: false
       add :image, :string, null: false
-      add :image_thumbmail, :string, null: false
+      add :image_thumbnail, :string, null: false
       add :max_guests, :integer, null: false
       add :pet_friendly, :boolean, default: false, null: false
       add :pool, :boolean, default: false, null: false
