@@ -1,0 +1,1 @@
+alias QueroAlugar.Vacation.{Place}
