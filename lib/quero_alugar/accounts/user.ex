@@ -6,7 +6,7 @@ defmodule QueroAlugar.Accounts.User do
 
   @required_fields [:username, :email, :password]
 
-  schema "user" do
+  schema "users" do
     field :email, :string
     field :password_hash, :string
     field :password, :string, virtual: true

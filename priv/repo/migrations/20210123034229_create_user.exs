@@ -1,4 +1,4 @@
-defmodule QueroAlugar.Repo.Migrations.CreateUser do
+defmodule QueroAlugar.Repo.Migrations.CreateUsers do
   use Ecto.Migration
 
   def change do
@@ -9,5 +9,8 @@ defmodule QueroAlugar.Repo.Migrations.CreateUser do
 
       timestamps()
     end
+
+    create unique_index(:users, [:username])
+    create unique_index(:users, [:email])
   end
 end

@@ -7,7 +7,7 @@ defmodule QueroAlugar.Vacations.Review do
 
   @required_fields [:rating, :comment, :place]
 
-  schema "review" do
+  schema "reviews" do
     field :comment, :string
     field :rating, :integer
 

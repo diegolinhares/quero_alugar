@@ -10,7 +10,7 @@ defmodule QueroAlugar.Vacations.Booking do
   @required_fields [:start_date, :end_date, :place_id]
   @optional_fields [:state]
 
-  schema "booking" do
+  schema "bookings" do
     field :end_date, :date
     field :start_date, :date
     field :state, :string, default: "reserved"
