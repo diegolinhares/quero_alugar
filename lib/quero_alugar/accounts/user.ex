@@ -11,7 +11,8 @@ defmodule QueroAlugar.Accounts.User do
     field :username, :string
 
     has_many :bookings, QueroAlugar.Vacations.Booking
-
+    has_many :reviews, QueroAlugar.Vacations.Review
+    
     timestamps()
   end
 
