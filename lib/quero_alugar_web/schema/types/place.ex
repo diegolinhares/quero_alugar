@@ -15,4 +15,18 @@ defmodule QueroAlugarWeb.Schema.Types.Place do
     field :image, non_null(:string)
     field :image_thumbnail, non_null(:string)
   end
+
+  input_object :place_filter do
+    field :matching, :string
+    field :wifi, :boolean
+    field :pet_friendly, :boolean
+    field :pool, :boolean
+    field :guests_count, :integer
+    field :available_between, :date_range
+  end
+
+  input_object :date_range do
+    field :start_date, non_null(:date)
+    field :end_date, non_null(:date)
+  end
 end

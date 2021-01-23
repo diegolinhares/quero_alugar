@@ -6,4 +6,9 @@ defmodule QueroAlugarWeb.Schema.Types do
   alias QueroAlugarWeb.Schema.Types
 
   import_types(Types.Place)
+
+  enum :sort_order do
+    value(:asc)
+    value(:desc)
+  end
 end
