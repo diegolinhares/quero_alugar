@@ -1,4 +1,4 @@
-defmodule QueroAlugarWeb.HealthController do
+defmodule QueroAlugarWeb.Controllers.HealthController do
   use Phoenix.Controller
 
   def index(conn, _params) do

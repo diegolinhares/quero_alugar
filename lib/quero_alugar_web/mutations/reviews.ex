@@ -13,7 +13,6 @@ defmodule QueroAlugarWeb.Mutations.Reviews do
 
       middleware(Authenticate)
       resolve(&Resolvers.Reviews.create/3)
-      middleware(&build_payload/2)
     end
   end
 end

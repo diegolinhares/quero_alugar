@@ -30,7 +30,16 @@ defmodule QueroAlugarWeb.Schema do
   end
 
   def plugins do
-    [Absinthe.Middleware.Dataloader] ++ Absinthe.Plugin.defaults()
+    [Absinthe.Middleware.Dataloader | Absinthe.Plugin.defaults()]
+  end
+
+  # Use the build_payload from AbsintheErrorPayload to all mutations
+  def middleware(middleware, _field, %Absinthe.Type.Object{identifier: :mutation}) do
+    middleware ++ [&build_payload/2]
+  end
+
+  def middleware(middleware, _field, _object) do
+    middleware
   end
 
   def dataloader() do

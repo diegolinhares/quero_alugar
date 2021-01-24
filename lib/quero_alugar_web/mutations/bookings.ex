@@ -13,7 +13,6 @@ defmodule QueroAlugarWeb.Mutations.Bookings do
 
       middleware(Authenticate)
       resolve(&Resolvers.Bookings.create/3)
-      middleware(&build_payload/2)
     end
 
     @desc "Cancel a booking"
@@ -22,7 +21,6 @@ defmodule QueroAlugarWeb.Mutations.Bookings do
 
       middleware(Authenticate)
       resolve(&Resolvers.Bookings.cancel/3)
-      middleware(&build_payload/2)
     end
   end
 end

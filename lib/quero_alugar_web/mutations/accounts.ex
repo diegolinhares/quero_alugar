@@ -10,14 +10,12 @@ defmodule QueroAlugarWeb.Mutations.Accounts do
       arg(:input, :account_input)
 
       resolve(&Resolvers.Accounts.create/3)
-      middleware(&build_payload/2)
     end
 
     field :sign_in, :account_payload do
       arg(:input, :session_input)
 
       resolve(&Resolvers.Accounts.sign_in/3)
-      middleware(&build_payload/2)
     end
   end
 end
