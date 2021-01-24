@@ -8,10 +8,7 @@ defmodule QueroAlugarWeb.Schema.Types.User do
   object :user do
     field :username, non_null(:string)
     field :email, non_null(:string)
-
-    field :bookings, list_of(:booking),
-      resolve: dataloader(Vacations, :bookings, args: %{scope: :user})
-
+    field :bookings, list_of(:booking), resolve: dataloader(Vacations)
     field :reviews, list_of(:review), resolve: dataloader(Vacations)
   end
 end

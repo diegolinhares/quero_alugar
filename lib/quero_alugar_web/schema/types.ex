@@ -9,6 +9,7 @@ defmodule QueroAlugarWeb.Schema.Types do
   import_types(Types.Place)
   import_types(Types.Booking)
   import_types(Types.Review)
+  import_types(Types.Account)
 
   enum :sort_order do
     value(:asc)
