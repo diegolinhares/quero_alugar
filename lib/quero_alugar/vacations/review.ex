@@ -5,7 +5,7 @@ defmodule QueroAlugar.Vacations.Review do
   alias QueroAlugar.Vacations.Place
   alias QueroAlugar.Accounts.User
 
-  @required_fields [:rating, :comment, :place]
+  @required_fields [:rating, :comment, :place_id]
 
   schema "reviews" do
     field :comment, :string

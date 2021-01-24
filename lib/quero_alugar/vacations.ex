@@ -91,6 +91,13 @@ defmodule QueroAlugar.Vacations do
     |> Repo.update()
   end
 
+  def create_review(%User{} = user, attrs) do
+    %Review{}
+    |> Review.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:user, user)
+    |> Repo.insert()
+  end
+
   def datasource() do
     Dataloader.Ecto.new(Repo, query: &query/2)
   end
