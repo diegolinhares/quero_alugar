@@ -8,6 +8,9 @@ defmodule QueroAlugarWeb.Router do
   scope "/" do
     pipe_through :api
 
+    get("/", QueroAlugarWeb.HealthController, :index)
+    get("/health", QueroAlugarWeb.HealthController, :index)
+
     forward "/api", Absinthe.Plug, schema: QueroAlugarWeb.Schema
     forward "/graphiql", Absinthe.Plug.GraphiQL, schema: QueroAlugarWeb.Schema
   end
