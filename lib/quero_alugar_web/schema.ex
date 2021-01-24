@@ -2,28 +2,14 @@ defmodule QueroAlugarWeb.Schema do
   use Absinthe.Schema
 
   import_types(QueroAlugarWeb.Schema.Types)
+  import_types(QueroAlugarWeb.Queries.Places)
   import_types(QueroAlugarWeb.Mutations.Bookings)
   import_types(QueroAlugarWeb.Mutations.Reviews)
 
   alias QueroAlugar.{Accounts, Vacations}
-  alias QueroAlugarWeb.Resolvers
 
   query do
-    @desc "Get a place by its slug"
-    field :get_place_by_slug, :place do
-      arg(:slug, non_null(:string))
-
-      resolve(&Resolvers.Vacations.get_place_by_slug/3)
-    end
-
-    @desc "Get a list of places"
-    field :list_all_places, list_of(:place) do
-      arg(:limit, :integer)
-      arg(:order, type: :sort_order, default_value: :asc)
-      arg(:filter, :place_filter)
-
-      resolve(&Resolvers.Vacations.list_places/3)
-    end
+    import_fields(:places_queries)
   end
 
   mutation do
