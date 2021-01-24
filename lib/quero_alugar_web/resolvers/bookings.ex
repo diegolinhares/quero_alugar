@@ -2,7 +2,7 @@ defmodule QueroAlugarWeb.Resolvers.Bookings do
   alias QueroAlugar.Vacations
 
   def create(_, args, %{context: %{current_user: user}}) do
-    case Vacations.create_booking(user, args) do
+    case Vacations.create_booking(user, args[:input]) do
       {:error, changeset} ->
         {:error, changeset}
 
@@ -23,7 +23,7 @@ defmodule QueroAlugarWeb.Resolvers.Bookings do
           {:ok, booking}
       end
     else
-      {:error, message: "Hey, that's not your booking!"}
+      {:error, message: "Hey, thats not your booking"}
     end
   end
 end

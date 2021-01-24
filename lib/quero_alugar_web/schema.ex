@@ -1,10 +1,19 @@
 defmodule QueroAlugarWeb.Schema do
+  alias QueroAlugar.{Accounts, Vacations}
+
   use Absinthe.Schema
+
+  import AbsintheErrorPayload.Payload
+
+  import_types(AbsintheErrorPayload.ValidationMessageTypes)
 
   import_types(QueroAlugarWeb.Schema.Types)
   import_types(QueroAlugarWeb.Queries.Places)
   import_types(QueroAlugarWeb.Mutations.Bookings)
   import_types(QueroAlugarWeb.Mutations.Reviews)
+
+  payload_object(:booking_payload, :booking)
+  payload_object(:review_payload, :review)
 
   query do
     import_fields(:places_queries)
@@ -20,8 +29,6 @@ defmodule QueroAlugarWeb.Schema do
   end
 
   def dataloader() do
-    alias QueroAlugar.{Accounts, Vacations}
-
     Dataloader.new()
     |> Dataloader.add_source(Vacations, Vacations.datasource())
     |> Dataloader.add_source(Accounts, Accounts.datasource())

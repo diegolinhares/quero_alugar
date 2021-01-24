@@ -14,4 +14,10 @@ defmodule QueroAlugarWeb.Schema.Types.Booking do
     field :user, non_null(:user), resolve: dataloader(Accounts)
     field :place, non_null(:place), resolve: dataloader(Vacations)
   end
+
+  input_object :booking_input do
+    field(:place_id, non_null(:id))
+    field(:start_date, non_null(:date))
+    field(:end_date, non_null(:date))
+  end
 end

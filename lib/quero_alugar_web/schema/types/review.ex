@@ -13,4 +13,10 @@ defmodule QueroAlugarWeb.Schema.Types.Review do
     field :user, non_null(:user), resolve: dataloader(Accounts)
     field :place, non_null(:place), resolve: dataloader(Vacations)
   end
+
+  input_object :input_review do
+    field(:place_id, non_null(:id))
+    field(:comment, :string)
+    field(:rating, non_null(:integer))
+  end
 end
