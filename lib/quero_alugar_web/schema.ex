@@ -38,8 +38,6 @@ defmodule QueroAlugarWeb.Schema do
   end
 
   def context(ctx) do
-    ctx = Map.put(ctx, :current_user, Accounts.get_user(1))
-
     Map.put(ctx, :loader, dataloader())
   end
 end

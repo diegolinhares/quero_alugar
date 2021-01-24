@@ -4,4 +4,8 @@ defmodule QueroAlugarWeb.Helpers.AuthToken do
   def sign(user) do
     Phoenix.Token.sign(QueroAlugarWeb.Endpoint, @user_salt, %{id: user.id})
   end
+
+  def verify(token) do
+    Phoenix.Token.verify(QueroAlugarWeb.Endpoint, @user_salt, token, max_age: 365 * 24 * 3600)
+  end
 end

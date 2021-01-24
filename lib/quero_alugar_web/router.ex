@@ -3,6 +3,7 @@ defmodule QueroAlugarWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug QueroAlugarWeb.Plugs.SetCurrentUser
   end
 
   scope "/" do

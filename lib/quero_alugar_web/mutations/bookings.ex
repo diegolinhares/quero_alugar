@@ -2,6 +2,7 @@ defmodule QueroAlugarWeb.Mutations.Bookings do
   use Absinthe.Schema.Notation
 
   alias QueroAlugarWeb.Resolvers
+  alias QueroAlugarWeb.Schema.Middleware.Authenticate
 
   import AbsintheErrorPayload.Payload
 
@@ -10,6 +11,7 @@ defmodule QueroAlugarWeb.Mutations.Bookings do
     field :create_booking, :booking_payload do
       arg(:input, :booking_input)
 
+      middleware(Authenticate)
       resolve(&Resolvers.Bookings.create/3)
       middleware(&build_payload/2)
     end
@@ -18,6 +20,7 @@ defmodule QueroAlugarWeb.Mutations.Bookings do
     field :cancel_booking, :booking_payload do
       arg(:booking_id, non_null(:id))
 
+      middleware(Authenticate)
       resolve(&Resolvers.Bookings.cancel/3)
       middleware(&build_payload/2)
     end
