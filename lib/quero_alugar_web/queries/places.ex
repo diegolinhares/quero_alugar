@@ -14,6 +14,7 @@ defmodule QueroAlugarWeb.Queries.Places do
     @desc "Get a list of places"
     field :list_all_places, list_of(:place) do
       arg(:limit, :integer)
+      arg(:offset, :integer)
       arg(:order, type: :sort_order, default_value: :asc)
       arg(:filter, :place_filter)
 

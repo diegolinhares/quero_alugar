@@ -21,6 +21,9 @@ defmodule QueroAlugar.Vacations do
       {:limit, limit}, query ->
         from p in query, limit: ^limit
 
+      {:offset, offset}, query ->
+        from p in query, limit: ^offset
+
       {:filter, filters}, query ->
         filter_with(filters, query)
 
