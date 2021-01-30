@@ -1,4 +1,4 @@
-defmodule QueroAlugarWeb.Queries.Places do
+defmodule QueroAlugarWeb.Schema.Queries.Places do
   use Absinthe.Schema.Notation
 
   alias QueroAlugarWeb.Resolvers

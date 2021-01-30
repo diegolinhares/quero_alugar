@@ -8,8 +8,8 @@ defmodule QueroAlugarWeb.Schema do
   import_types(AbsintheErrorPayload.ValidationMessageTypes)
 
   import_types(QueroAlugarWeb.Schema.Types)
-  import_types(QueroAlugarWeb.Queries.Places)
-  import_types(QueroAlugarWeb.Queries.Sessions)
+  import_types(QueroAlugarWeb.Schema.Queries.Places)
+  import_types(QueroAlugarWeb.Schema.Queries.Sessions)
   import_types(QueroAlugarWeb.Mutations.Bookings)
   import_types(QueroAlugarWeb.Mutations.Reviews)
   import_types(QueroAlugarWeb.Mutations.Accounts)

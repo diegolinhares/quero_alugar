@@ -1,4 +1,4 @@
-defmodule QueroAlugarWeb.Queries.Sessions do
+defmodule QueroAlugarWeb.Schema.Queries.Sessions do
   use Absinthe.Schema.Notation
 
   alias QueroAlugarWeb.Resolvers
