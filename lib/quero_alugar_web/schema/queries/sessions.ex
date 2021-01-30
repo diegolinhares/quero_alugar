@@ -1,7 +1,7 @@
 defmodule QueroAlugarWeb.Schema.Queries.Sessions do
   use Absinthe.Schema.Notation
 
-  alias QueroAlugarWeb.Resolvers
+  alias QueroAlugarWeb.Schema.Resolvers
 
   object :sessions_queries do
     field :me, :user, description: "Get the currently signed-in user" do

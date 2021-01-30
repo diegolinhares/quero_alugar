@@ -1,7 +1,7 @@
 defmodule QueroAlugarWeb.Schema.Queries.Places do
   use Absinthe.Schema.Notation
 
-  alias QueroAlugarWeb.Resolvers
+  alias QueroAlugarWeb.Schema.Resolvers
 
   object :places_queries do
     @desc "Get a place by its slug"

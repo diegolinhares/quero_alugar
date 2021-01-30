@@ -1,4 +1,4 @@
-defmodule QueroAlugarWeb.Resolvers.Bookings do
+defmodule QueroAlugarWeb.Schema.Resolvers.Bookings do
   alias QueroAlugar.Vacations
 
   def create(_, args, %{context: %{current_user: user}}) do

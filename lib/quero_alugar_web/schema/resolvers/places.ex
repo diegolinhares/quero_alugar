@@ -1,4 +1,4 @@
-defmodule QueroAlugarWeb.Resolvers.Places do
+defmodule QueroAlugarWeb.Schema.Resolvers.Places do
   alias QueroAlugar.Vacations
 
   def get_by_slug(_, %{slug: slug}, _) do

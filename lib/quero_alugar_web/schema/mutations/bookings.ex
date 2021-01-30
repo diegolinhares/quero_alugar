@@ -1,7 +1,7 @@
 defmodule QueroAlugarWeb.Schema.Mutations.Bookings do
   use Absinthe.Schema.Notation
 
-  alias QueroAlugarWeb.Resolvers
+  alias QueroAlugarWeb.Schema.Resolvers
   alias QueroAlugarWeb.Schema.Middleware.Authenticate
 
   object :bookings_mutations do

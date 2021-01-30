@@ -1,7 +1,7 @@
 defmodule QueroAlugarWeb.Schema.Mutations.Reviews do
   use Absinthe.Schema.Notation
 
-  alias QueroAlugarWeb.Resolvers
+  alias QueroAlugarWeb.Schema.Resolvers
   alias QueroAlugarWeb.Schema.Middleware.Authenticate
 
   object :reviews_mutations do

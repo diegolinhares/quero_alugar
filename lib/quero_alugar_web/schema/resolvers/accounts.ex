@@ -1,4 +1,4 @@
-defmodule QueroAlugarWeb.Resolvers.Accounts do
+defmodule QueroAlugarWeb.Schema.Resolvers.Accounts do
   alias QueroAlugar.Accounts
   alias QueroAlugarWeb.Helpers.AuthToken
 
