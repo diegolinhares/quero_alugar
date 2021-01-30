@@ -2,7 +2,7 @@ defmodule QueroAlugarWeb.Schema.Mutations.Reviews do
   use Absinthe.Schema.Notation
 
   alias QueroAlugarWeb.Schema.Resolvers
-  alias QueroAlugarWeb.Schema.Middleware.Authenticate
+  alias QueroAlugarWeb.Middleware.Authenticate
 
   object :reviews_mutations do
     @desc "Create a review for a place"

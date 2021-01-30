@@ -2,7 +2,7 @@ defmodule QueroAlugarWeb.Schema.Mutations.Bookings do
   use Absinthe.Schema.Notation
 
   alias QueroAlugarWeb.Schema.Resolvers
-  alias QueroAlugarWeb.Schema.Middleware.Authenticate
+  alias QueroAlugarWeb.Middleware.Authenticate
 
   object :bookings_mutations do
     @desc "Create a booking for a place"

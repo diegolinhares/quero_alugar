@@ -1,4 +1,4 @@
-defmodule QueroAlugarWeb.Schema.Middleware.Authenticate do
+defmodule QueroAlugarWeb.Middleware.Authenticate do
   @behaviour Absinthe.Middleware
 
   def call(resolution, _) do
