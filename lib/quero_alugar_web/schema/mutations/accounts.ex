@@ -1,9 +1,7 @@
-defmodule QueroAlugarWeb.Mutations.Accounts do
+defmodule QueroAlugarWeb.Schema.Mutations.Accounts do
   use Absinthe.Schema.Notation
 
   alias QueroAlugarWeb.Resolvers
-
-  import AbsintheErrorPayload.Payload
 
   object :accounts_mutations do
     field :sign_up, :account_payload do

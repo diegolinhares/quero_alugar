@@ -1,10 +1,8 @@
-defmodule QueroAlugarWeb.Mutations.Bookings do
+defmodule QueroAlugarWeb.Schema.Mutations.Bookings do
   use Absinthe.Schema.Notation
 
   alias QueroAlugarWeb.Resolvers
   alias QueroAlugarWeb.Schema.Middleware.Authenticate
-
-  import AbsintheErrorPayload.Payload
 
   object :bookings_mutations do
     @desc "Create a booking for a place"

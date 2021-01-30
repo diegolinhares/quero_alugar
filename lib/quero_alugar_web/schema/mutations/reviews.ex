@@ -1,10 +1,8 @@
-defmodule QueroAlugarWeb.Mutations.Reviews do
+defmodule QueroAlugarWeb.Schema.Mutations.Reviews do
   use Absinthe.Schema.Notation
 
   alias QueroAlugarWeb.Resolvers
   alias QueroAlugarWeb.Schema.Middleware.Authenticate
-
-  import AbsintheErrorPayload.Payload
 
   object :reviews_mutations do
     @desc "Create a review for a place"

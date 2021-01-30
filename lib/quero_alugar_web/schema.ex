@@ -10,9 +10,9 @@ defmodule QueroAlugarWeb.Schema do
   import_types(QueroAlugarWeb.Schema.Types)
   import_types(QueroAlugarWeb.Schema.Queries.Places)
   import_types(QueroAlugarWeb.Schema.Queries.Sessions)
-  import_types(QueroAlugarWeb.Mutations.Bookings)
-  import_types(QueroAlugarWeb.Mutations.Reviews)
-  import_types(QueroAlugarWeb.Mutations.Accounts)
+  import_types(QueroAlugarWeb.Schema.Mutations.Bookings)
+  import_types(QueroAlugarWeb.Schema.Mutations.Reviews)
+  import_types(QueroAlugarWeb.Schema.Mutations.Accounts)
 
   payload_object(:booking_payload, :booking)
   payload_object(:review_payload, :review)
