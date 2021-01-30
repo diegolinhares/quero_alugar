@@ -8,6 +8,7 @@ defmodule QueroAlugarWeb.Schema do
   import_types(AbsintheErrorPayload.ValidationMessageTypes)
 
   import_types(QueroAlugarWeb.Schema.Types)
+  import_types(QueroAlugarWeb.Schema.Queries.Health)
   import_types(QueroAlugarWeb.Schema.Queries.Places)
   import_types(QueroAlugarWeb.Schema.Queries.Sessions)
   import_types(QueroAlugarWeb.Schema.Mutations.Bookings)
@@ -19,6 +20,7 @@ defmodule QueroAlugarWeb.Schema do
   payload_object(:account_payload, :session)
 
   query do
+    import_fields(:health_queries)
     import_fields(:places_queries)
     import_fields(:sessions_queries)
   end
